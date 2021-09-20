@@ -3,10 +3,10 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 class AStarJava {
-    private static Set<Node> initialStates = new HashSet<Node>();
+    private static HashSet<Node> initialStates = new HashSet<Node>();
     public static void main(String[] args) {
         //initiale data tracker
-        Set<int[]> tracker = new HashSet<int[]>();
+        HashSet<int[]> tracker = new HashSet<int[]>();
 
         //run AStar 100 times
         for (int i = 0; i < 100; i++)
@@ -74,7 +74,12 @@ class AStarJava {
             initialStates.add(state);
 
             //initialize frontier
-            PriorityQueue<Node> frontier = new PriorityQueue<Node>();
+            PriorityQueue<Node> frontier = new PriorityQueue<Node>(2, new Comparator<Node>(){
+                @Override
+                public int compare(Node n1, Node n2){
+                    return n1.getCost() + n1.getMisplacedTiles() - n2.getCost() - n2.getMisplacedTiles();
+                }
+            });
 
             //add initial state's children to frontier
             for(Board board : state.getBoard().makeAllMoves())
@@ -95,6 +100,7 @@ class AStarJava {
                 //dequeue next node
                 Node next = frontier.remove();
 
+                
                 //check that the node has not already been visited
                 if(visited.contains(next))
                 {

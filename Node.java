@@ -1,6 +1,4 @@
- import java.util.*;
- 
- public class Node implements Comparable<Node>{
+public class Node{
      // declare global variables
      private Board board;
      private int cost;
@@ -49,22 +47,6 @@
          return sum;
      }
 
-     @Override public int compareTo(Node n)
-     {
-         if(this.getCost() + this.getMisplacedTiles() > n.getCost() + n.getMisplacedTiles())
-         {
-             return 1;
-         }
-         else if(this.getCost() + this.getMisplacedTiles() < n.getCost() + n.getMisplacedTiles())
-         {
-             return -1;
-         }
-         else 
-         {
-            return 0;
-         }
-     }
-
      @Override public boolean equals(Object obj)
      {
         if (obj == null) {
@@ -76,10 +58,6 @@
         }
 
         Node other = (Node) obj;
-         if(Arrays.equals(other.getBoard().getBoard(), this.getBoard().getBoard()))
-         {
-             return true;
-         }
-         return false;
+        return other.getBoard().getBoard().equals(this.getBoard().getBoard());
      }
 }
