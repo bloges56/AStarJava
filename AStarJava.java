@@ -65,12 +65,9 @@ class AStarJava {
             Node state = new Node();
 
             //ensure that initial node is unique
-            for(Node n : initialStates)
+            if(initialStates.contains(state))
             {
-                if(Arrays.equals(n.getBoard().getBoard(), state.getBoard().getBoard()))
-                {
-                    return new int[] { -1, -1 };
-                }
+                return new int[] { -1, -1 };
             }
 
             //add initial state
@@ -99,17 +96,14 @@ class AStarJava {
                 Node next = frontier.remove();
 
                 //check that the node has not already been visited
-                for(Node n : visited)
+                if(visited.contains(next))
                 {
-                    if(Arrays.equals(n.getBoard().getBoard(), next.getBoard().getBoard())  && n.getCost() <= next.getCost())
-                    {
-                        continue;
-                    }
+                    continue;
                 }
 
                 //add next to memory
                 visited.add(next);
-                System.out.print("\r{0}" + visited.size());
+                System.out.print("\r" + visited.size());
 
                 //check if we reached goal state
                 if (next.getMisplacedTiles() == 0)

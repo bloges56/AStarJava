@@ -64,4 +64,22 @@
             return 0;
          }
      }
+
+     @Override public boolean equals(Object obj)
+     {
+        if (obj == null) {
+            return false;
+        }
+
+        if (obj.getClass() != this.getClass()) {
+            return false;
+        }
+
+        Node other = (Node) obj;
+         if(Arrays.equals(other.getBoard().getBoard(), this.getBoard().getBoard())  && other.getCost() == this.getCost())
+         {
+             return true;
+         }
+         return false;
+     }
 }
