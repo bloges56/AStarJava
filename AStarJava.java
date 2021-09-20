@@ -2,7 +2,7 @@ import java.util.*;
 import java.io.FileWriter;   
 import java.io.IOException;
 
-class main {
+class AStarJava {
     private static Set<Node> initialStates = new HashSet<Node>();
     public static void main(String[] args) {
         //initiale data tracker
