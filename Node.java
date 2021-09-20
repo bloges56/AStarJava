@@ -76,7 +76,7 @@
         }
 
         Node other = (Node) obj;
-         if(Arrays.equals(other.getBoard().getBoard(), this.getBoard().getBoard())  && other.getCost() == this.getCost())
+         if(Arrays.equals(other.getBoard().getBoard(), this.getBoard().getBoard()))
          {
              return true;
          }

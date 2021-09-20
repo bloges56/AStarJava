@@ -112,7 +112,7 @@ public class Board
             {
                for(int j = i+1; j < 9; j++)
                 {
-                    if(board[i] > 0 && board[j] < board[i])
+                    if(board[i] > 0 && board[i] > board[j])
                     {
                         inv_count++;
                     }
