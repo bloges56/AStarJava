@@ -60,6 +60,6 @@ public class Node{
         }
 
         Node other = (Node) obj;
-        return (Arrays.equals(this.getBoard().getBoard(), other.getBoard().getBoard()) && this.getCost() == other.getCost());
+        return (Arrays.equals(this.getBoard().getBoard(), other.getBoard().getBoard()));
      }
 }
