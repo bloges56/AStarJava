@@ -47,7 +47,7 @@ class AStarJava {
             FileWriter myWriter = new FileWriter("data.txt");
             for(int[] track : tracker)
             {
-                myWriter.write("depth: " + track[0] + "average: " + (1.0 * track[2]) / (1.0 * track[1]));
+                myWriter.write("depth: " + track[0] + " average: " + (1.0 * track[2]) / (1.0 * track[1]) + "\n");
             }
             myWriter.close();
         }
