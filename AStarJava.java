@@ -9,7 +9,7 @@ class AStarJava {
         HashSet<int[]> tracker = new HashSet<int[]>();
 
         //run AStar 100 times
-        for (int i = 0; i < 100; i++)
+        for (int i = 0; i < 1200; i++)
         {
             //initialize tracker for the cost at each depth
             int[] costAtDepth = new int[] { -1, -1 };
