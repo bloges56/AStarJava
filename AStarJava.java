@@ -102,10 +102,10 @@ class AStarJava {
 
                 
                 //check that the node has not already been visited
-                if(visited.contains(next))
-                {
-                    continue;
-                }
+                // if(visited.contains(next))
+                // {
+                //     continue;
+                // }
 
                 //add next to memory
                 visited.add(next);
