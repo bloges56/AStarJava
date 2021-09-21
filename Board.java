@@ -8,7 +8,7 @@ public class Board
 
     public Board()
     {
-        randomBoard();
+        this.randomBoard();
     }
 
     public Board(int[] setBoard)
@@ -91,7 +91,7 @@ public class Board
     {
         Random rnd = new Random();
         do{
-            board = new int[9];
+            this.board = new int[9];
             List<Integer> nums = new ArrayList<Integer>();
             for(int i = 0; i <9; i++)
             {
@@ -100,9 +100,9 @@ public class Board
             for (int i = 0; i < 9; i++)
             {
                 int rand = rnd.nextInt(nums.size());
-                board[i] = nums.remove(rand);
+                this.board[i] = nums.remove(rand);
             } 
-        }while(getInvCount() % 2 != 0);
+        }while(this.getInvCount() % 2 != 0);
     }
 
     private int getInvCount()
@@ -112,7 +112,7 @@ public class Board
             {
                for(int j = i+1; j < 9; j++)
                 {
-                    if(board[i] > 0 && board[i] > board[j])
+                    if(this.board[i] > 0 && this.board[i] > this.board[j])
                     {
                         inv_count++;
                     }
