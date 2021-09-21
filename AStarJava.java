@@ -91,7 +91,7 @@ class AStarJava {
             }
 
             //initiale memory
-            HashSet<Node> visited = new HashSet<Node>();
+            ArrayList<Node> visited = new ArrayList<Node>();
             visited.add(state);
 
             //run until frontier is empty
