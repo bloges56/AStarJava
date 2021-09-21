@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Node{
      // declare global variables
      private Board board;
@@ -58,6 +60,6 @@ public class Node{
         }
 
         Node other = (Node) obj;
-        return other.getBoard().getBoard().equals(this.getBoard().getBoard());
+        return Arrays.equals(this.getBoard().getBoard(), other.getBoard().getBoard());
      }
 }
