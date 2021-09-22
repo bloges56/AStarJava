@@ -74,10 +74,11 @@ class AStarJava {
             initialStates.add(state);
 
             //initialize frontier
+            //change getTotalManahattanDistance() to getMisplaceTiles() to run h1
             PriorityQueue<Node> frontier = new PriorityQueue<Node>(2, new Comparator<Node>(){
                 @Override
                 public int compare(Node n1, Node n2){
-                    return n1.getCost() + n1.getMisplacedTiles() - n2.getCost() - n2.getMisplacedTiles();
+                    return n1.getCost() + n1.getTotalManahattanDistance() - n2.getCost() - n2.getTotalManahattanDistance();
                 }
             });
 

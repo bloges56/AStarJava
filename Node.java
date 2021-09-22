@@ -49,6 +49,22 @@ public class Node{
          return sum;
      }
 
+     public int getTotalManahattanDistance()
+     {
+         int sum = 0;
+         for(int i = 0; i < this.board.getBoard().length; i++)
+         {
+             sum += this.getManhattanDistance(i);
+         }
+         return sum;
+     }
+
+     //return Manhattan distance of a given index
+     private int getManhattanDistance(int index)
+     {
+        return Math.abs((board.getBoard()[index] / 3) - (index / 3)) + Math.abs((board.getBoard()[index] % 3) - (index % 3));
+     }
+
      @Override public boolean equals(Object obj)
      {
         if (obj == null) {
