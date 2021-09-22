@@ -49,6 +49,7 @@ public class Node{
          return sum;
      }
 
+     //return the total manhattan distance
      public int getTotalManahattanDistance()
      {
          int sum = 0;
