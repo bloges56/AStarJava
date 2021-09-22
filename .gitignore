@@ -387,5 +387,11 @@ FodyWeavers.xsd
 .idea/
 *.sln.iml
 
-#ignore comiled java classes
+#ignore compiled java classes
 *.class
+
+#ignore created text files
+*.txt
+
+#ignore breakpoints
+.ipnyb_checkpoints/
