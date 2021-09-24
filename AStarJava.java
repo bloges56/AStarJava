@@ -1,8 +1,18 @@
+/*
+AStarJava
+This program runs an implementation of the A* algorithm to solve representations of the 8-puzzle
+
+Authors: Jake Mathews and Brady Logan
+*/
+
+
 import java.util.*;
 import java.io.FileWriter;   
 import java.io.IOException;
 
 class AStarJava {
+
+    //declare a set of initial states to make sure that there are no duplicate initial states
     private static HashSet<Node> initialStates = new HashSet<Node>();
     public static void main(String[] args) {
         //initiale data tracker
@@ -42,6 +52,8 @@ class AStarJava {
             System.out.println("\n" + i);
         }
 
+
+        //write out the recorded data to a text file
         try
         {
             FileWriter myWriter = new FileWriter("data.txt");

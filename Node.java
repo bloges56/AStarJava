@@ -1,3 +1,9 @@
+/*
+Node
+Implements the blueprint for a Node object which contains the 8-puzzle board and the cost to get to this Node.
+
+Authors: Jake Mathews and Brady Logan
+*/
 import java.util.Arrays;
 
 public class Node{
@@ -66,6 +72,7 @@ public class Node{
         return Math.abs((board.getBoard()[index] / 3) - (index / 3)) + Math.abs((board.getBoard()[index] % 3) - (index % 3));
      }
 
+     //override for equals method so that conatins() can find a Node
      @Override public boolean equals(Object obj)
      {
         if (obj == null) {

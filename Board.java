@@ -1,52 +1,68 @@
+/*
+Board
+This class implements a representation of an instance of a 8-puzzle board using an array.
+
+Authors: Jake Mathews and Brady Logan
+*/
 import java.util.Random;
 import java.util.*;
 import java.lang.System;
 
 public class Board 
 {
+    //state of board
     private int[] board;
 
+    //constructor
     public Board()
     {
         this.randomBoard();
     }
 
+    //cunstructor with parameters
     public Board(int[] setBoard)
     {
         board = new int[9];
         System.arraycopy(setBoard, 0, board, 0, 9);
     }
 
+    //returns the board
     public int[] getBoard()
     {
         return board;
     }
 
+    //returns all the possible boards that the current board can generat
     public Board[] makeAllMoves()
     {
+        //find where the blank space is
         int blankLoc = findBlank();
+
+        //declare an array of boards
         Board[] moves = new Board[4];
 
+        //generate the left move board
         Board leftMoveBoard = new Board(board);
         if(leftMoveBoard.makeMove(blankLoc, -1))
         {
             moves[0] = leftMoveBoard;
         }
         
-
+        //generate the right move board
         Board rightMoveBoard = new Board(board);
         if(rightMoveBoard.makeMove(blankLoc, 1))
         {
             moves[1] = rightMoveBoard;
         }
         
-
+        //generate the up move board
         Board upMoveBoard = new Board(board);
         if(upMoveBoard.makeMove(blankLoc, -3))
         {
             moves[2] = upMoveBoard;
         }
 
+        //generate the down move board
         Board downMoveBoard = new Board(board);
         if(downMoveBoard.makeMove(blankLoc, 3))
         {
@@ -57,8 +73,11 @@ public class Board
 
     }
 
+    //change the board according to the given move and location of the blank square
     private boolean makeMove(int blankLoc, int move)
     {
+        //only make the move if it is valid
+        //else return false
         int left = -1;
         int right = 1;
         int up = -3;
@@ -75,6 +94,8 @@ public class Board
         return false;
     }
 
+
+    //finds the location of the blank square
     private int findBlank()
         {
             for (int i = 0; i < board.length; i++)
@@ -87,8 +108,11 @@ public class Board
             return 0;
         }
 
+
+    //generates a random board
     private void randomBoard()
     {
+        //keep generating random boards until it is a valid initial state
         Random rnd = new Random();
         do{
             this.board = new int[9];
@@ -105,6 +129,8 @@ public class Board
         }while(this.getInvCount() % 2 != 0);
     }
 
+    //gets the inversion count of a board
+    //this is used in randomBoard() to esnure that a board is valid
     private int getInvCount()
     {
         int inv_count = 0;
